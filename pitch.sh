@@ -17,7 +17,6 @@ while read -r line; do
       fi
 done < links.html > albums.html
 
-
 declare -i num=1
 while read -r line; do
   wget -O review$num.html pitchfork.com/$line;
