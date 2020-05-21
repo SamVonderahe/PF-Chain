@@ -46,4 +46,5 @@ done
 rm *.html
 rm data
 printf "\n$1:\n======================================\n"
-cat final
+#cat final
+python graph.py
