@@ -24,8 +24,8 @@ while read -r line; do
   sleep 0.5
 done < albums.html
 
-
-grep -oP "[^\"]* \| [0-9].?[0-9]" review*.html > data
+grep -oP "[^\"]* \| " review*.html > data
+grep -oP "score\">[0-9].?[0-9]" review*.html >> data
 grep -oP 'release_year\":[0-9]*' review*.html >> data
 declare -i dup=0;
 for (( i=1; i<$num; i++ ))
@@ -33,7 +33,7 @@ for (( i=1; i<$num; i++ ))
     while read -r line; do
       if [[ "$line" == "review$i."* || $num -eq 2 ]]; then
         if [[ $dup -eq 0 ]]; then
-          printf "\n" >> final
+          printf "E\n" >> final
           dup=1
         else
           echo $line | cut -f2- -d: | cut -f2- -d: >> final
