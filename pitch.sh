@@ -2,13 +2,26 @@
 artist=$(echo $1 | sed -r 's/ /%20/g')
 rm final
 touch final
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+echo -e "${RED}
+  _____  ______       _____ _           _       
+ |  __ \|  ____|     / ____| |         (_)      
+ | |__) | |__ ______| |    | |__   __ _ _ _ __  
+ |  ___/|  __|______| |    | '_ \ / _\` | | \'_ \ 
+ | |    | |         | |____| | | | (_| | | | | |
+ |_|    |_|          \_____|_| |_|\__,_|_|_| |_|
+                                                 ${NC}"
+
+
+
 wget \
 \
 \
 \
 \
 \
--O $artist.html https://pitchfork.com/search/?query=$artist
+-q -O $artist.html https://pitchfork.com/search/?query=$artist
 
 grep -oP '\/search\/more\/\?query='$artist'&amp;filter=albumreviews' $artist.html | sed 's/amp;//'> showall
 if [ -s showall ]; then
@@ -19,7 +32,7 @@ wget \
 \
 \
 \
--O $artist.html https://pitchfork.com$showall
+-q -O $artist.html https://pitchfork.com$showall
 
 fi
 
@@ -32,9 +45,11 @@ while read -r line; do
       fi
 done < links.html > albums.html
 
+echo -e "Please wait..\nPF-Chain is artificially slowed down to respect Pitchfork's servers"
+
 declare -i num=1
 while read -r line; do
-  wget -O review$num.html pitchfork.com/$line;
+  wget -q -O review$num.html pitchfork.com/$line;
   num=$((num + 1))
   sleep 0.5
 done < albums.html
