@@ -2,9 +2,9 @@
 artist=$(echo $1 | sed -r 's/ /%20/g')
 rm final
 touch final
-RED='\033[0;31m'
 NC='\033[0m' # No Color
-echo -e "${RED}
+BPurple='\033[1;35m'
+echo -e "${BPurple}
   _____  ______       _____ _           _       
  |  __ \|  ____|     / ____| |         (_)      
  | |__) | |__ ______| |    | |__   __ _ _ _ __  
