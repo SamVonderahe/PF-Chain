@@ -9,6 +9,21 @@ wget \
 \
 \
 -O $artist.html https://pitchfork.com/search/?query=$artist
+
+grep -oP '\/search\/more\/\?query='$artist'&amp;filter=albumreviews' $artist.html | sed 's/amp;//'> showall
+if [ -s showall ]; then
+showall=$(cat showall)
+wget \
+\
+\
+\
+\
+\
+-O $artist.html https://pitchfork.com$showall
+
+fi
+
+
 grep -oP '\/reviews\/albums\/[^(\">)]*' $artist.html > links.html
 while read -r line; do
     if [ ${#line} -gt 16 ]
@@ -47,4 +62,4 @@ rm *.html
 rm data
 printf "\n$1:\n======================================\n"
 #cat final
-python graph.py
+python3 graph.py
