@@ -1,4 +1,3 @@
-Only grabs 12 most recent reviews
-Reviews are out of order when there is at least one in 1900s and one in 2000s
+Only grabs 26 most recent reviews
 Does not display artists on reviews
 Error when searching for artists with special characters
