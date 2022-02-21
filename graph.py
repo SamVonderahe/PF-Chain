@@ -1,9 +1,4 @@
 # libraries
-'''import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import seaborn as sns'''
-
 
 f = open("final", "r")
 num_albums = 0;
@@ -13,7 +8,6 @@ for x in f:
 
 albums = ["Album"] * num_albums
 ratings = ["Rating"] * num_albums
-#year = ["Year"] * num_albums
 
 
 f.seek(0)
@@ -68,26 +62,6 @@ while i < int(num_albums):
 
 
 
-'''for i in range(num_albums):
-  f.readline()
-  line = f.readline()
-  while line.find('|') == -1 and len(line) > 0:
-    line = f.readline()
-  if len(line) == 0:
-    break
-  line = line.rstrip()
-  albums[i] = line[1:]
-  line = f.readline()
-  line = f.readline()
-  ratings[i] = line[1:]
-  line = f.readline()
-  line = line.rstrip()
-  line = '(' + line + ')'
-  albums[i] = albums[i] + line
-
-albums=albums[::-1]
-ratings=ratings[::-1]
-'''
 f.close()
 i = 0
 while i < int(num_albums):
@@ -105,18 +79,3 @@ while i < int(num_albums):
       print(ratings[i])
       print()
   i += 1
-
-
-
- 
-# data
-#df=pd.DataFrame({'x': range(0,11), 'y': range(0,11) })
- 
-# plot
-#plt.plot( 'x', 'y', data=df, linestyle='-', marker='o')
-'''plt.plot(albums, ratings)
-plt.axis('on')
-plt.axis([0, num_albums, 0, 10])
-plt.axis('image')
-plt.show()'''
-
