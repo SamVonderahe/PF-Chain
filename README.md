@@ -1,11 +1,11 @@
 # PF-Chain
-PF-Chain was developed as a command line interface tool for Ubuntu. The only dependencies are bash and python 3
+PF-Chain was developed as a command line interface tool for Bash. The only dependencies are python 3 and wget
  
 First check what version of python you currently have with  
 `python --version`  
 If you do not have python 3 installed run the following commands  
 `sudo apt update`  
-`sudo apt install python3.8`  
+`sudo apt install python3`  
 You should now be able to run PF-Chain with
 `./pitch.sh 'Artist Name'
 
