@@ -45,7 +45,7 @@ while read -r line; do
       fi
 done < links.html > albums.html
 
-echo -e "Please wait..\nPF-Chain is artificially slowed down to respect Pitchfork's servers"
+echo -e "Please wait..\nPF-Chain uses politeness intervals to respect Pitchfork's servers"
 
 declare -i num=1
 while read -r line; do
